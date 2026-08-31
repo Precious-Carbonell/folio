@@ -89,3 +89,15 @@
     transform: translateY(0);
   }
 }
+
+/* Alternating projects frames, anchored to the lower-left of the section. */
+.projectsAnim {
+  position: absolute;
+  bottom: 2%;
+  left: 3%;
+  width: min(28vw, 400px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 3;
+}

@@ -1,0 +1,119 @@
+.deck {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Each room is stacked on top of the others; only the active one is
+   shown. Rooms fade + zoom in/out to read as "moving between places". */
+.room {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 620ms ease, transform 620ms ease;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.room > * {
+  width: 100%;
+  height: 100%;
+}
+
+.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 1;
+}
+
+/* The room currently leaving — fades out and drifts slightly back. */
+.leaving {
+  opacity: 0;
+  transform: scale(0.96);
+  visibility: visible;
+  z-index: 0;
+}
+
+/* ---- Arrow controls ---- */
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  background: rgba(90, 160, 214, 0.9);
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(90, 150, 210, 0.45);
+  transition: transform 0.18s ease, background 0.18s ease, opacity 0.18s ease;
+}
+
+.arrow:hover {
+  background: #5aa0d6;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.arrowLeft {
+  left: 22px;
+}
+
+.arrowRight {
+  right: 22px;
+}
+
+.arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---- Room dots (progress indicator) ---- */
+.dots {
+  position: fixed;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(90, 150, 210, 0.4);
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.dot:hover {
+  transform: scale(1.2);
+}
+
+.dotActive {
+  background: #5aa0d6;
+  transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .room {
+    transition: opacity 300ms ease;
+    transform: none;
+  }
+  .active,
+  .leaving {
+    transform: none;
+  }
+}

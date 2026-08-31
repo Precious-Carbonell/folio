@@ -1,0 +1,78 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  background-image: var(--section2-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Items sit on top of the desk scene, positioned as % of the section
+   so they scale with the background. */
+.item {
+  position: absolute;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+/* Yellow glow that traces the item's edges on hover (matches Section 3). */
+.item:hover {
+  filter: drop-shadow(0 0 6px #ffe14d) drop-shadow(0 0 14px #ffd11a);
+  transform: scale(1.04);
+}
+
+/* Alternating aboutme frames, anchored to the lower-left of the section. */
+.aboutMe {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  width: min(28vw, 300px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Photo with the cat — upper center of the desk. */
+.item1 {
+  top: 1%;
+  left: 50%;
+  width: 15%;
+}
+
+/* Pony / friends photo — just below and left of item1. */
+.item2 {
+  top: 30%;
+  left: 35%;
+  width: 18%;
+}
+
+/* ID badge with lanyard — below the photos, left of center. */
+.item3 {
+  top: 36%;
+  left: 56%;
+  width: 16%;
+}
+
+/* Laptop — far right of the desk. */
+.item4 {
+  top: -4%;
+  left: 68%;
+  width: 40%;
+}
+
+/* item5 — beside item1. */
+.item5 {
+  top: 3%;
+  left: 34%;
+  width: 17%;
+}
+
+/* item6 — to the right of item3. */
+.item6 {
+  top: 45%;
+  left: 70%;
+  width: 5%;
+}

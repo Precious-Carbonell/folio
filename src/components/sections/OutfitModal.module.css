@@ -129,6 +129,13 @@
   color: #9fc4e0;
   font-size: 1.6rem;
   font-weight: 800;
+  overflow: hidden;
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .projectBody {

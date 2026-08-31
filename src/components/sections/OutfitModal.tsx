@@ -4,6 +4,7 @@ import styles from './OutfitModal.module.css'
 export type Project = {
   name: string
   description: string
+  thumbnail?: string
   websiteUrl?: string
   videoUrl?: string
 }
@@ -75,7 +76,17 @@ function OutfitModal({ profile, onClose }: OutfitModalProps) {
           <div className={styles.projects}>
             {profile.projects.map((project, i) => (
               <article key={i} className={styles.project}>
-                <div className={styles.thumb}>{i + 1}</div>
+                <div className={styles.thumb}>
+                  {project.thumbnail ? (
+                    <img
+                      src={project.thumbnail}
+                      alt=""
+                      className={styles.thumbImg}
+                    />
+                  ) : (
+                    i + 1
+                  )}
+                </div>
                 <div className={styles.projectBody}>
                   <span className={styles.projectName}>{project.name}</span>
                   <p className={styles.projectDesc}>{project.description}</p>
