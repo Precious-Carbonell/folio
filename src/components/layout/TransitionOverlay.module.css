@@ -1,0 +1,60 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* White flash that fills in as the image reaches full size. */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  animation: flashIn 700ms ease-in forwards;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  transform: scale(0);
+  transform-origin: center;
+  animation: grow 700ms cubic-bezier(0.6, 0, 0.9, 0.4) forwards;
+  will-change: transform;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(0);
+  }
+  to {
+    /* Big enough to cover the whole viewport regardless of size. */
+    transform: scale(30);
+  }
+}
+
+@keyframes flashIn {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .flash {
+    animation-duration: 300ms;
+  }
+}

@@ -1,0 +1,61 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--menu-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeIn 400ms ease both;
+}
+
+.menu {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.link {
+  min-width: 280px;
+  padding: 16px 44px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #7fb3d5;
+  background: #ffffff;
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(120, 170, 210, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.link:hover {
+  transform: translateY(-3px) scale(1.05);
+  color: #5f9fd0;
+  box-shadow: 0 10px 26px rgba(120, 170, 210, 0.45);
+}
+
+.link:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.link:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

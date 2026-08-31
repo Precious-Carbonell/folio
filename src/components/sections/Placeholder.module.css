@@ -1,0 +1,12 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  opacity: 0.35;
+}

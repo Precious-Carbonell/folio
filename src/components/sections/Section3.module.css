@@ -1,0 +1,91 @@
+.section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--section3-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.closet {
+  position: relative;
+  width: min(92vw, 1100px);
+  height: auto;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+}
+
+.closet:hover {
+  transform: scale(1.03);
+  filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.4));
+}
+
+.closet:active {
+  transform: scale(0.99);
+}
+
+.closet:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 6px;
+}
+
+.closetImg {
+  display: block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+}
+
+/* Outfits hang inside the blue compartment of the open closet, on top
+   of the closet image. Positioned as % of the closet so they stay
+   aligned as it scales. */
+.outfit {
+  position: absolute;
+  z-index: 2;
+  height: auto;
+  object-fit: contain;
+  animation: outfitIn 350ms ease both;
+  cursor: pointer;
+  transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+/* Yellow glow that traces the outfit's edges (drop-shadow follows the
+   PNG transparency, so it hugs the shape rather than a box). */
+.outfit:hover {
+  filter: drop-shadow(0 0 6px #ffe14d) drop-shadow(0 0 14px #ffd11a);
+  transform: scale(1.04);
+}
+
+/* Top hanging spot — jacket in the blue hanging compartment. */
+.outfit1 {
+  top: 16%;
+  left: 35%;
+  width: 15%;
+}
+
+/* Lower hanging spot — sweater in the blue hanging compartment. */
+.outfit2 {
+  top: 50%;
+  left: 35%;
+  width: 15%;
+}
+
+@keyframes outfitIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

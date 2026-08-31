@@ -1,0 +1,52 @@
+.layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Outer wrapper controls the vertical fall (loops forever). */
+.drop {
+  position: absolute;
+  top: -10%;
+  will-change: transform;
+  animation: fall linear infinite;
+}
+
+/* Inner element controls horizontal sway + spin, so the two
+   transforms don't fight over the same property. */
+.leaf {
+  width: 16px;
+  height: 16px;
+  background: var(--leaf-color, #d98a4f);
+  /* Leaf silhouette: rounded on opposite corners. */
+  border-radius: 0 100% 0 100%;
+  opacity: 0.9;
+  will-change: transform;
+  animation: sway ease-in-out infinite alternate;
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-10vh);
+  }
+  to {
+    transform: translateY(120vh);
+  }
+}
+
+@keyframes sway {
+  from {
+    transform: translateX(-24px) rotate(0deg);
+  }
+  to {
+    transform: translateX(24px) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layer {
+    display: none;
+  }
+}
