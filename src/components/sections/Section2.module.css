@@ -1,14 +1,32 @@
 .section {
   position: relative;
-  min-height: 100vh;
-  background-image: var(--section2-bg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  /* Fill the empty space around the fitted stage with the scene's
+     desk tone so letterboxing isn't jarring. */
+  background: #c98b5e;
 }
 
-/* Items sit on top of the desk scene, positioned as % of the section
+/* Fixed-aspect stage that holds the background + all items. It scales to
+   fit inside the viewport so the whole scene is always visible and the
+   item coordinates stay locked to the artwork on any screen size. */
+.stage {
+  position: relative;
+  aspect-ratio: 1024 / 553;
+  /* Fit within the viewport in both directions (letterbox as needed). */
+  width: min(100vw, calc(100vh * (1024 / 553)));
+  max-height: 100vh;
+  background-image: var(--section2-bg);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Items sit on top of the desk scene, positioned as % of the stage
    so they scale with the background. */
 .item {
   position: absolute;
@@ -24,12 +42,12 @@
   transform: scale(1.04);
 }
 
-/* Alternating aboutme frames, anchored to the lower-left of the section. */
+/* Alternating aboutme frames, anchored to the lower-left of the stage. */
 .aboutMe {
   position: absolute;
   bottom: 3%;
   left: 3%;
-  width: min(28vw, 300px);
+  width: 28%;
   height: auto;
   object-fit: contain;
   pointer-events: none;

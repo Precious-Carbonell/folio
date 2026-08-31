@@ -76,23 +76,24 @@ function Section2({ active = false }: Section2Props) {
   }, [active])
 
   return (
-    <section
-      id="section-2"
-      className={styles.section}
-      style={{ '--section2-bg': `url(${bg})` } as React.CSSProperties}
-    >
-      {ITEMS.map((item, i) => (
-        <img
-          key={i}
-          src={item.image}
-          alt=""
-          className={`${styles.item} ${styles[item.className]}`}
-          onMouseEnter={playHoverSound}
-          onClick={() => setActiveItem(item)}
-        />
-      ))}
+    <section id="section-2" className={styles.section}>
+      <div
+        className={styles.stage}
+        style={{ '--section2-bg': `url(${bg})` } as React.CSSProperties}
+      >
+        {ITEMS.map((item, i) => (
+          <img
+            key={i}
+            src={item.image}
+            alt=""
+            className={`${styles.item} ${styles[item.className]}`}
+            onMouseEnter={playHoverSound}
+            onClick={() => setActiveItem(item)}
+          />
+        ))}
 
-      <AboutMeAnimation />
+        <AboutMeAnimation />
+      </div>
 
       {activeItem && (
         <ItemModal item={activeItem} onClose={() => setActiveItem(null)} />

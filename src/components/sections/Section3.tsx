@@ -98,11 +98,11 @@ function Section3() {
   }
 
   return (
-    <section
-      id="section-3"
-      className={styles.section}
-      style={{ '--section3-bg': `url(${bg})` } as React.CSSProperties}
-    >
+    <section id="section-3" className={styles.section}>
+      <div
+        className={styles.stage}
+        style={{ '--section3-bg': `url(${bg})` } as React.CSSProperties}
+      >
       <button
         type="button"
         className={styles.closet}
@@ -141,7 +141,8 @@ function Section3() {
         )}
       </button>
 
-      <ProjectsAnimation />
+        <ProjectsAnimation />
+      </div>
 
       {activeProfile && (
         <OutfitModal
