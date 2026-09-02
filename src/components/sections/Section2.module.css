@@ -11,15 +11,16 @@
   background: #c98b5e;
 }
 
-/* Fixed-aspect stage that holds the background + all items. It scales to
-   fit inside the viewport so the whole scene is always visible and the
-   item coordinates stay locked to the artwork on any screen size. */
+/* Stage that holds the background + all items. It always spans the full
+   viewport width (background reaches both edges) with height following
+   the artwork's aspect ratio, and is at least as tall as the viewport so
+   there are never empty bars. Items are positioned as % of the stage, so
+   they stay locked to the artwork at any width. */
 .stage {
   position: relative;
+  width: 100vw;
+  min-height: 100vh;
   aspect-ratio: 1024 / 553;
-  /* Fit within the viewport in both directions (letterbox as needed). */
-  width: min(100vw, calc(100vh * (1024 / 553)));
-  max-height: 100vh;
   background-image: var(--section2-bg);
   background-size: 100% 100%;
   background-position: center;
@@ -45,9 +46,9 @@
 /* Alternating aboutme frames, anchored to the lower-left of the stage. */
 .aboutMe {
   position: absolute;
-  bottom: 3%;
+  bottom: 10%;
   left: 3%;
-  width: 28%;
+  width: 24%;
   height: auto;
   object-fit: contain;
   pointer-events: none;
@@ -55,14 +56,14 @@
 
 /* Photo with the cat — upper center of the desk. */
 .item1 {
-  top: 1%;
+  top: 8%;
   left: 50%;
   width: 15%;
 }
 
 /* Pony / friends photo — just below and left of item1. */
 .item2 {
-  top: 30%;
+  top: 35%;
   left: 35%;
   width: 18%;
 }
@@ -83,7 +84,7 @@
 
 /* item5 — beside item1. */
 .item5 {
-  top: 3%;
+  top: 5%;
   left: 34%;
   width: 17%;
 }

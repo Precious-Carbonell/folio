@@ -10,13 +10,16 @@
   background: #bfe3f5;
 }
 
-/* Fixed-aspect stage holding the wall scene + closet, scaled to fit the
-   viewport so the whole scene (incl. wall photos) stays visible. */
+/* Stage holding the wall scene + closet. It always spans the full
+   viewport width (so the background reaches both edges) with its height
+   following the artwork's aspect ratio. Items are positioned as % of the
+   stage, so they stay locked to the artwork at any width. It's at least
+   as tall as the viewport so there are never empty bars. */
 .stage {
   position: relative;
+  width: 100vw;
+  min-height: 100vh;
   aspect-ratio: 1024 / 553;
-  width: min(100vw, calc(100vh * (1024 / 553)));
-  max-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +31,7 @@
 
 .closet {
   position: relative;
-  width: 42%;
+  width: 66%;
   height: auto;
   cursor: pointer;
   background: transparent;
@@ -108,9 +111,9 @@
 /* Alternating projects frames, anchored to the lower-left of the section. */
 .projectsAnim {
   position: absolute;
-  bottom: 2%;
+  bottom: 5%;
   left: 3%;
-  width: 24%;
+  width: 30%;
   height: auto;
   object-fit: contain;
   pointer-events: none;
