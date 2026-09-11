@@ -1,8 +1,8 @@
 import { useState, useCallback, useRef } from 'react'
 import Hero from './components/sections/Hero'
-import Placeholder from './components/sections/Placeholder'
 import Section2 from './components/sections/Section2'
 import Section3 from './components/sections/Section3'
+import Section4 from './components/sections/Section4'
 import NavButton from './components/layout/NavButton'
 import TransitionOverlay from './components/layout/TransitionOverlay'
 import RoomDeck from './components/layout/RoomDeck'
@@ -64,7 +64,7 @@ function App() {
     <Hero key="hero" active={isMain && roomIndex === 0} />,
     <Section2 key="section-2" active={isMain && roomIndex === 1} />,
     <Section3 key="section-3" />,
-    <Placeholder key="section-4" id="section-4" label="Section 4" color="#d3dcf5" />,
+    <Section4 key="section-4" />,
   ]
 
   return (
