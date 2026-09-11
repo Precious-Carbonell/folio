@@ -1,0 +1,62 @@
+.wrapper {
+  position: fixed;
+  top: 28px;
+  /* Sits to the left of the nav button (nav is at right:28px, 74px wide). */
+  right: 116px;
+  z-index: 50;
+}
+
+/* Same badge style as the nav button: white circle, blue ring, chunky
+   pressed-button shadow. */
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 74px;
+  height: 74px;
+  padding: 14px;
+  border: 4px solid #bfe3ff;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #a9d4f5, 0 10px 18px rgba(90, 150, 210, 0.35);
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px) scale(1.06);
+  border-color: #9fd0f5;
+  box-shadow: 0 9px 0 #a9d4f5, 0 16px 26px rgba(90, 150, 210, 0.5);
+}
+
+.button:active {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: 0 3px 0 #a9d4f5, 0 6px 12px rgba(90, 150, 210, 0.4);
+}
+
+.button:focus-visible {
+  outline: 3px solid #5aa0d6;
+  outline-offset: 4px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: #5aa0d6;
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    top: 16px;
+    right: 90px;
+  }
+
+  .button {
+    width: 58px;
+    height: 58px;
+    padding: 11px;
+  }
+}

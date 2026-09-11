@@ -6,6 +6,7 @@ import Section3 from './components/sections/Section3'
 import NavButton from './components/layout/NavButton'
 import TransitionOverlay from './components/layout/TransitionOverlay'
 import RoomDeck from './components/layout/RoomDeck'
+import BgMusic from './components/layout/BgMusic'
 import MenuPage from './components/pages/MenuPage'
 import { playRandomButtonSound } from './lib/buttonSound'
 
@@ -68,6 +69,9 @@ function App() {
 
   return (
     <>
+      {/* Quiet looping background music */}
+      <BgMusic />
+
       {/* Nav button: opens the menu from main, returns home from menu */}
       <NavButton
         variant={view === 'menu' ? 'menu' : 'main'}
